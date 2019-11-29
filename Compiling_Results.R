@@ -380,6 +380,26 @@ breed.TotSkua <- SpBreedRes(species = "TotSkua") # Recall that this is between 0
 
 
 
+# This version of the function does the same thing as above, but with the original skua categories:
+SpBreedResSkua <- function(species) {
+  # Create results object:
+  res <- as.data.frame(rep(NA, times = dim(breed.results)[[1]]))
+  names(res) <- "Breed"
+  res$Code <- dimnames(breed.results)[[1]] # Site names
+  # Fill the object:
+  for (i in 1:length(res$Code)) {
+    yr_i <- which(visit.yr.tab[i,] == 1) # year index
+    post <- breed.results[i,yr_i,species,] # posterior
+    res$Breed[i] <- round(sum(post)/length(post), digits = 4)
+  }
+  colnames(res)[1] <- species
+  return(res)
+}
+
+breed.BRSK <- SpBreedResSkua(species = "BRSK")
+breed.SPSK <- SpBreedResSkua(species = "SPSK")
+breed.AnySkua <- SpBreedResSkua(species = "AnySkua")
+
 
 
 # Species Accumulation ----------------------------------------------------
