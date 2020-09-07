@@ -1,4 +1,4 @@
-# Schrimpf_etal_InReview_PolarBiology
+# Schrimpf_etal_PolarBiology_Occupancy
 Source code for the multi-state occupancy models of Antarctic Peninsula breeding birds described in the paper
 
 This folder contains code for the manuscript titled "Regional breeding bird assessment of the Antarctic Peninsula" which has been submitted to Polar Biology.
